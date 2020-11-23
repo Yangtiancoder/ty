@@ -19,7 +19,7 @@
 
     <div class="report-list" v-if="!showFileList">
       <p class="title">报告结果</p>
-      <el-table :data="tableData" stripe style="width: 90%" border>
+      <el-table :data="tableData" stripe style="width: 90%" border v-loading="loading">
         <el-table-column prop="index" label="序列" align="center"></el-table-column>
         <el-table-column prop="name" label="名称" align="center"></el-table-column>
         <el-table-column label="预览" width="400" align="center">
@@ -46,11 +46,12 @@ export default {
       fileList: [],
       localFileList: [],
       showFileList: true,
+      loading: true,
     };
   },
   computed: {
     tableData() {
-      return this.localFileList.map((file, index) => ({
+      return this.loading ? [] : this.localFileList.map((file, index) => ({
         index: index + 1,
         name: file.name.split(".")[0],
         url: file.url,
@@ -73,7 +74,12 @@ export default {
       this.localFileList.push(file);
     },
     doPredict(){
-        this.showFileList = false
+      this.showFileList = false
+      this.loading = true
+      setTimeout(()=>{
+        this.loading=false
+      },1000)
+        
     }
   },
 };

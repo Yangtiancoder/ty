@@ -23,7 +23,11 @@ const routes = [
     {
         path: '/detail-results',
         component: () => import('@/views/DetailResults.vue')
-    }
+    },
+    {
+        path: '/',
+        component: () => import('@/views/Search.vue')
+    },
 ]
 
 const router = new VueRouter({

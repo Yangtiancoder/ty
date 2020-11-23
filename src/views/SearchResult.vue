@@ -1,19 +1,25 @@
 <template>
   <div class="search-result">
-      <div style="width:80%;textAlign: left"><el-button @click="$router.push('/search')">返回</el-button></div>
+      <div style="width:80%;textAlign: left">
+        <el-button type="primary" @click="$router.push('/search')" size="medium">Back</el-button>
+      </div>
 
-    <p class="title">跨库搜索结果</p>
+    <p class="title">跨库搜索结果: <span style="color: orange">
+      {{query}}
+      </span>
+    </p>
     <p class="en-title">Crossing Database Searching Results</p>
     <div class="result-container">
-      <el-table :data="tableData" style="width: 100%" class="table">
+      <el-table :data="tableData" style="width: 100%" class="table" >
+        <el-table-column prop="id" label="编号" width="90" align="center"></el-table-column>
         <el-table-column prop="数据库" label="数据库" width="500" align="center"></el-table-column>
 
-        <el-table-column :label="`共查找到 ${total} 条结果`" align="center">
+        <el-table-column :label="`共查找到 ${total} 条结果`" align="left">
           <template slot-scope="scope">
             <p>
                 <span class="em">{{scope.row.resultNum}}</span>
                 条结果
-                <a class="link" @click="$router.push('/detail-results')">
+                <a class="link" v-if="scope.row.resultNum > 0" @click="$router.push(`/detail-results?dataset=${scope.row.id}&query=${query}`)">
                   点击查看
                 </a>
             </p>
@@ -25,31 +31,41 @@
 </template>
 
 <script>
+import { dataset1, dataset2, dataset3, dataset4 } from '@/assets/data.js'
 
 export default {
 
   data() {
-    const dealWithQuery = (prop, defaultNum = 0) => {
-        let resultNum = parseInt(this.$route.query[prop])
-        if(isNaN(resultNum)) resultNum = defaultNum
-        return resultNum
-    }
+    const query = this.$route.query.query || 'error'
+    const [num1, num2, num3, num4] =([dataset1, dataset2, dataset3, dataset4]).map(dataset => {
+      return dataset.reduce((prePost, post) => {
+      return prePost + post.reduce((pre, para)=>{
+        if(para.type === 'text'){
+          const contentString = JSON.stringify(para.content)
+          return contentString.indexOf(query) >= 0 ? pre + 1 : pre
+        }
+        return pre
+      }, 0)
+    }, 0)
+    }) 
+    
+
     return {
-      dataset1: dealWithQuery('n1'),
-      dataset2: dealWithQuery('n2'),
-      dataset3: dealWithQuery('n3'),
+      dataset1: num1,
+      dataset2: num2,
+      dataset3: num3,
+      dataset4: num4,
+      total: num1 + num2 + num3 + num4,
+      query
     };
   },
   computed: {
-    total() {
-      return this.dataset1 + this.dataset2 + this.dataset3+4;
-    },
     tableData() {
       return [
-        { 数据库: "医学影像库", resultNum: this.dataset1 },
-        { 数据库: "组学数据库", resultNum: this.dataset2 },
-        { 数据库: "临床数据库", resultNum: this.dataset3 },
-        { 数据库: "文档数据库", resultNum: 4 },
+        { id: 1, 数据库: "临床数据库", resultNum: this.dataset1 },
+        { id: 2, 数据库: "医学影像库", resultNum: this.dataset2 },
+        { id: 3, 数据库: "组学数据库", resultNum: this.dataset3 },
+        { id: 4, 数据库: "文档数据库", resultNum: this.dataset4 },
       ];
     },
     resultNums(){
@@ -68,12 +84,13 @@ export default {
   flex-direction: column;
   align-items: center;
   .title {
-    font-size: 25px;
+    font-size: 30px;
+    color: #fff;
     font-weight: 600;
   }
   .en-title {
-  color: blue;
-    font-size: 20px;
+    color: #999;
+    font-size: 25px;
     font-weight: 200;
     margin-bottom: 20px;
   }
@@ -81,10 +98,12 @@ export default {
   .result-container {
     width: 80%;
     display: flex;
-    .table{
-        border-top: 5px solid black;
-        border-bottom: 5px solid black;
+    .table {
         font-size: 30px;
+        background-color: rgba(255,255,255, 0.1);
+        border-radius: 5px;
+        padding: 20px 10px;
+        color: #fff;
     }
      .em {
         color: #f40;
@@ -92,7 +111,7 @@ export default {
       }
       .link{
           font-size: 0.8em;
-          color: blue;
+          color: orangered;
           text-decoration: underline;
           cursor: pointer;
           margin: 0 40px;
@@ -103,9 +122,21 @@ export default {
 
 <style lang="less">
 .el-table td, .el-table th{
-    height: 50px;
+    height: 90px;
+    
     .cell{
         overflow: initial;
     }
 }
+
+.el-table thead{
+  color: #fff;
+}
+.el-table--enable-row-hover .el-table__body tr:hover>td{
+  background-color: rgba(0,0,0,0.1);
+}
+.el-table th, .el-table tr{
+  background-color: transparent;
+}
+
 </style>
