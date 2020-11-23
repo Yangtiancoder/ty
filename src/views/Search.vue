@@ -6,10 +6,12 @@
         v-model="input"
         placeholder="请输入内容"
         style="width: 60%"
+        @keydown.native.enter="$router.push(`/search-result?query=${input}`)"
       ></el-input>
       <div class="button-group">
         <el-button
           type="primary"
+          :disabled="!input"
           @click="$router.push(`/search-result?query=${input}`)"
           >search by keywords</el-button
         >
