@@ -25,7 +25,7 @@ export default {
   position: relative;
   padding: 60px 0;
   background: url(assets/bg.jpg);
-  height: 900px;
+  height: 820px;
 }
 
 #app::before{
