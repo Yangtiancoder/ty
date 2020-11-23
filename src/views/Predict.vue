@@ -54,7 +54,7 @@ export default {
         index: index + 1,
         name: file.name.split(".")[0],
         url: file.url,
-        isCovid19: Math.random() <= 0.3,
+        isCovid19:file.name.toLowerCase().indexOf("covid") >=0
       }));
     },
   },
