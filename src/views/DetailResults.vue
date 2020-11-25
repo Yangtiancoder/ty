@@ -3,17 +3,17 @@
     <div style="width: 80%; textAlign: left">
       <el-button type="primary" @click="$router.go(-1)" size="medium">Back</el-button>
     </div>
-    <p class="title">数据库搜索结果: <span style="color: orange">
+    <p class="title">Find: <span style="color: orange">
       {{query}}
       </span></p>
-    <p class="en-title">共搜索出 {{tableData.length}} 条结果</p>
+    <p class="en-title">totally {{tableData.length}} results</p>
     <div class="post-outer-container">
         <Post v-for="(post,index) in tableData" :key="index" :data="post" :query="query">
-          
+
         </Post>
     </div>
-    
-    
+
+
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
   data(){
     return {
       query: this.$route.query.query || 'error',
-      dataset: this.$route.query.dataset || 'null' 
+      dataset: this.$route.query.dataset || 'null'
     }
   },
   computed: {

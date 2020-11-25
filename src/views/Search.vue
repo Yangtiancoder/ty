@@ -32,7 +32,7 @@
       />
       <DatasetButton
         :src="require('@/assets/临床.png')"
-        title="Clinical Medicil"
+        title="Clinical Medical"
         desc="The novel coronavirus pneumonia clinical data include novel coronavirus pneumonia patients' clinical data management."
       />
       <DatasetButton

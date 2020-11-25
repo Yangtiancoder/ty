@@ -79,7 +79,7 @@ export default {
       setTimeout(()=>{
         this.loading=false
       },1000)
-        
+
     }
   },
 };
@@ -96,14 +96,17 @@ export default {
   .title {
     font-size: 25px;
     font-weight: 600;
+    color: #fff;
   }
   .en-title{
       font-size: 20px;
       font-weight: 200;
       margin-bottom: 60px;
+      color: #fff;
+
   }
 }
-.report-list {
+.report-list{
   width: 70%;
   border: 3px solid black;
   background-color: #fff;

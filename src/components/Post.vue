@@ -8,7 +8,7 @@
       <div style="textAlign: center" v-else>
         <img
           class="img"
-          :src="require(`../assets/meidcalimage/IM-0214-0001.jpeg`)"
+         :src="require(`../assets/meidcalimage/${item.content}`)"
         />
       </div>
     </div>
@@ -43,7 +43,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 10px 20px;
   text-indent: 1em;
-  
+
   p{
       word-break:break-all;
   }

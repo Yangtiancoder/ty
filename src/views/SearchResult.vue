@@ -4,23 +4,23 @@
         <el-button type="primary" @click="$router.push('/search')" size="medium">Back</el-button>
       </div>
 
-    <p class="title">跨库搜索结果: <span style="color: orange">
+    <p class="title">Crossing Database Searching Results: <span style="color: orange">
       {{query}}
       </span>
     </p>
-    <p class="en-title">Crossing Database Searching Results</p>
+
     <div class="result-container">
       <el-table :data="tableData" style="width: 100%" class="table" >
-        <el-table-column prop="id" label="编号" width="90" align="center"></el-table-column>
-        <el-table-column prop="数据库" label="数据库" width="500" align="center"></el-table-column>
+        <el-table-column prop="id" label="num" width="90" align="center"></el-table-column>
+        <el-table-column prop="数据库" label="DataBase" width="500" align="center"></el-table-column>
 
-        <el-table-column :label="`共查找到 ${total} 条结果`" align="left">
+        <el-table-column :label="`totally find ${total} results`" align="left">
           <template slot-scope="scope">
             <p>
                 <span class="em">{{scope.row.resultNum}}</span>
-                条结果
+                results
                 <a class="link" v-if="scope.row.resultNum > 0" @click="$router.push(`/detail-results?dataset=${scope.row.id}&query=${query}`)">
-                  点击查看
+                  ref
                 </a>
             </p>
           </template>
@@ -47,8 +47,8 @@ export default {
         return pre
       }, 0)
     }, 0)
-    }) 
-    
+    })
+
 
     return {
       dataset1: num1,
@@ -62,10 +62,10 @@ export default {
   computed: {
     tableData() {
       return [
-        { id: 1, 数据库: "临床数据库", resultNum: this.dataset1 },
-        { id: 2, 数据库: "医学影像库", resultNum: this.dataset2 },
-        { id: 3, 数据库: "组学数据库", resultNum: this.dataset3 },
-        { id: 4, 数据库: "文档数据库", resultNum: this.dataset4 },
+        { id: 1, 数据库: "Clinical Medical", resultNum: this.dataset1 },
+        { id: 2, 数据库: "Medical Image", resultNum: this.dataset2 },
+        { id: 3, 数据库: "Omics", resultNum: this.dataset3 },
+        { id: 4, 数据库: "BioMedical Knowledge", resultNum: this.dataset4 },
       ];
     },
     resultNums(){
@@ -123,7 +123,7 @@ export default {
 <style lang="less">
 .el-table td, .el-table th{
     height: 90px;
-    
+
     .cell{
         overflow: initial;
     }

@@ -112,16 +112,22 @@ export default {
   .title {
     font-size: 25px;
     font-weight: 600;
+    color: #fff;
+
   }
   .en-title {
     font-size: 20px;
     font-weight: 200;
     margin-bottom: 60px;
+    color: #fff;
+
   }
 }
 
 .content {
 //   border: 1px solid red;
+    color: #fff;
+
   .button-group {
     display: flex;
     justify-content: space-around;
