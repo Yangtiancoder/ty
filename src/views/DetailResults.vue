@@ -7,9 +7,9 @@
       {{query}}
       </span></p>
     <p class="en-title">totally {{tableData.length}} results</p>
+
     <div class="post-outer-container">
         <Post v-for="(post,index) in tableData" :key="index" :data="post" :query="query">
-
         </Post>
     </div>
 
