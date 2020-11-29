@@ -31,13 +31,13 @@
 </template>
 
 <script>
-import { dataset1, dataset2, dataset3, dataset4 } from '@/assets/data.js'
+import { dataset1, dataset5, dataset3, dataset4 } from '@/assets/data.js'
 
 export default {
 
   data() {
     const query = this.$route.query.query || 'error'
-    const [num1, num2, num3, num4] =([dataset1, dataset2, dataset3, dataset4]).map(dataset => {
+    const [num1, num2, num3, num4] =([dataset1, dataset5, dataset3, dataset4]).map(dataset => {
       return dataset.reduce((prePost, post) => {
       return prePost + post.reduce((pre, para)=>{
         if(para.type === 'text'){
@@ -52,7 +52,7 @@ export default {
 
     return {
       dataset1: num1,
-      dataset2: num2,
+      dataset5: num2,
       dataset3: num3,
       dataset4: num4,
       total: num1 + num2 + num3 + num4,
@@ -63,7 +63,7 @@ export default {
     tableData() {
       return [
         { id: 1, 数据库: "Clinical Medical", resultNum: this.dataset1 },
-        { id: 2, 数据库: "Medical Image", resultNum: this.dataset2 },
+        { id: 2, 数据库: "Medical Image", resultNum: this.dataset5 },
         { id: 3, 数据库: "Omics", resultNum: this.dataset3 },
         { id: 4, 数据库: "BioMedical Knowledge", resultNum: this.dataset4 },
       ];
@@ -121,7 +121,9 @@ export default {
 </style>
 
 <style lang="less">
-.el-table td, .el-table th{
+
+.search-result{
+  .el-table td, .el-table th{
     height: 90px;
 
     .cell{
@@ -138,5 +140,5 @@ export default {
 .el-table th, .el-table tr{
   background-color: transparent;
 }
-
+}
 </style>
