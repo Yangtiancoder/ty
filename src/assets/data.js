@@ -50083,3 +50083,79 @@ export const dataset4 = [
     ]
 
 ]
+
+export const dataset5 = [
+
+    [
+        {
+            type: 'text',
+            content: JSON.stringify({
+                id: 1,
+                "patientid": '1',
+                "img": "IM-0215-0001.jpeg",
+                "sex": "M",
+                "age": "22",
+                "finding": "COVID-19",
+                "clinical_notes": "On January 22, 2020, a 65-year-old man with a history of hypertension, type 2 diabetes, coronary heart disease for which a stent had been implanted, and lung cancer was admitted to the emergency department of Cho Ray Hospital, the referral hospital in Ho Chi Minh City, for low-grade fever and fatigue. He had become ill with fever on January 17, a total of 4 days after he and his wife had flown to Hanoi from the Wuchang district in Wuhan, where outbreaks of 2019-nCoV were occurring. He reported that he had not been exposed to a “wet market” (a market where dead and live animals are sold) in Wuhan. Chest radiographs obtained on admission showed an infiltrate in the upper lobe of the left lung"
+            })
+        }
+    ],
+    [
+        {
+            type: 'text',
+            content: JSON.stringify({
+                id: 2,
+                "patientid": '2',
+                "img": "IM-0216-0001.jpeg",
+                "sex": "F",
+                "age": "26",
+                "finding": "COVID-19",
+                "clinical_notes": "On January 22, 2020, a 65-year-old man with a history of hypertension, type 2 diabetes, coronary heart disease for which a stent had been implanted, and lung cancer was admitted to the emergency department of Cho Ray Hospital, the referral hospital in Ho Chi Minh City, for low-grade fever and fatigue. He had become ill with fever on January 17, a total of 4 days after he and his wife had flown to Hanoi from the Wuchang district in Wuhan, where outbreaks of 2019-nCoV were occurring. He reported that he had not been exposed to a “wet market” (a market where dead and live animals are sold) in Wuhan. Chest radiographs obtained on admission showed an infiltrate in the upper lobe of the left lung"
+            })
+        }
+    ],
+    [
+        {
+            type: 'text',
+            content: JSON.stringify({
+                id: 3,
+                "patientid": '3',
+                "img": "IM-0217-0001.jpeg",
+                "sex": "M",
+                "age": "30",
+                "finding": "COVID-19",
+                "clinical_notes": "On January 22, 2020, a 65-year-old man with a history of hypertension, type 2 diabetes, coronary heart disease for which a stent had been implanted, and lung cancer was admitted to the emergency department of Cho Ray Hospital, the referral hospital in Ho Chi Minh City, for low-grade fever and fatigue. He had become ill with fever on January 17, a total of 4 days after he and his wife had flown to Hanoi from the Wuchang district in Wuhan, where outbreaks of 2019-nCoV were occurring. He reported that he had not been exposed to a “wet market” (a market where dead and live animals are sold) in Wuhan. Chest radiographs obtained on admission showed an infiltrate in the upper lobe of the left lung"
+            })
+        }
+    ]
+    ,
+    [
+        {
+            type: 'text',
+            content: JSON.stringify({
+                id: 4,
+                "patientid": '4',
+                "img": "IM-0019-0001.jpeg",
+                "sex": "M",
+                "age": "38",
+                "finding": "COVID-19",
+                "clinical_notes": "On January 22, 2020, a 65-year-old man with a history of hypertension, type 2 diabetes, coronary heart disease for which a stent had been implanted, and lung cancer was admitted to the emergency department of Cho Ray Hospital, the referral hospital in Ho Chi Minh City, for low-grade fever and fatigue. He had become ill with fever on January 17, a total of 4 days after he and his wife had flown to Hanoi from the Wuchang district in Wuhan, where outbreaks of 2019-nCoV were occurring. He reported that he had not been exposed to a “wet market” (a market where dead and live animals are sold) in Wuhan. Chest radiographs obtained on admission showed an infiltrate in the upper lobe of the left lung"
+            })
+        }
+    ]
+    ,
+    [
+        {
+            type: 'text',
+            content: JSON.stringify({
+                id: 5,
+                "patientid": '5',
+                "img": "IM-0017-0001.jpeg",
+                "sex": "M",
+                "age": "39",
+                "finding": "COVID-19",
+                "clinical_notes": "On January 22, 2020, a 65-year-old man with a history of hypertension, type 2 diabetes, coronary heart disease for which a stent had been implanted, and lung cancer was admitted to the emergency department of Cho Ray Hospital, the referral hospital in Ho Chi Minh City, for low-grade fever and fatigue. He had become ill with fever on January 17, a total of 4 days after he and his wife had flown to Hanoi from the Wuchang district in Wuhan, where outbreaks of 2019-nCoV were occurring. He reported that he had not been exposed to a “wet market” (a market where dead and live animals are sold) in Wuhan. Chest radiographs obtained on admission showed an infiltrate in the upper lobe of the left lung"
+            })
+        }
+    ]
+]
