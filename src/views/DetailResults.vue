@@ -10,11 +10,11 @@
       <span style="color: orange">
         {{ query }}
       </span>
-      
-      <el-select 
-      style="margin: 5px 20px;" 
-      v-model="value" 
-      placeholder="Choose A column" 
+
+      <el-select
+      style="margin: 5px 20px;"
+      v-model="value"
+      placeholder="Choose A column"
       size="mini"
       v-if="dataset == 2">
         <el-option
@@ -29,10 +29,17 @@
     <p class="en-title">totally {{ tableData.length }} results</p>
 
     <div v-if="dataset == 2">
-      
+
       <DataTable :data="tableData" :query="query" />
-      
+
     </div>
+
+     <div v-if="dataset == 3">
+
+       <DataTablecp :data="tableData" :query="query" />
+
+        </div>
+
     <div class="post-outer-container" v-else>
       <Post
         v-for="(post, index) in tableData"
@@ -49,6 +56,7 @@
 import { dataset1, dataset3, dataset4, dataset5 } from "@/assets/data.js";
 import Post from "@/components/Post";
 import DataTable from "@/components/DataTable";
+import DataTablecp from "@/components/DataTablecp";
 
 export default {
   data() {
@@ -78,7 +86,7 @@ export default {
     },
     options(){
       return [
-        { value: null, label: 'choose'},
+        { value: null, label: 'All Column'},
         { value: 'patientid', label: 'patient id'},
         { value: 'sex', label: 'sex'},
         { value: 'age', label: 'age'},
@@ -90,7 +98,9 @@ export default {
   components: {
     Post,
     DataTable,
+    DataTablecp,
   },
+
 };
 </script>
 
