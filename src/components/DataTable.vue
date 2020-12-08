@@ -1,12 +1,14 @@
 <template>
   <div class="post-table-container">
     <el-table :data="tableData" style="width: 100%" class="table">
+
       <el-table-column
-        prop="patientid"
-        label="patient id"
+        prop="imageid"
+        label="imageid"
         width="90"
         align="center"
       ></el-table-column>
+
       <el-table-column prop="img" label="image" width="120" align="center">
         <template slot-scope="scope">
           <img
@@ -16,26 +18,47 @@
         </template>
       </el-table-column>
 
+            <el-table-column
+              prop="modality"
+              label="modality"
+              width="90"
+              align="center"
+            >
+            <template slot-scope="scope">
+                      <span v-html="convert(scope.row.modality)">
+                        {{ convert(scope.row.modality) }}
+                      </span>
+                    </template>
+            </el-table-column>
+
       <el-table-column
-        prop="sex"
-        label="sex"
-        width="90"
+        prop="datasource"
+        label="datasource"
+        width="100"
         align="center"
-      ></el-table-column>
-      <el-table-column
-        prop="age"
-        label="age"
-        width="90"
-        align="center"
-      ></el-table-column>
-      <el-table-column
+      >
+      <template slot-scope="scope">
+                <span v-html="convert(scope.row.datasource)">
+                  {{ convert(scope.row.datasource) }}
+                </span>
+              </template>
+      </el-table-column>
+
+ <el-table-column
         prop="finding"
         label="finding"
         width="100"
         align="center"
-      ></el-table-column>
+      >
+      <template slot-scope="scope">
+                <span v-html="convert(scope.row.finding)">
+                  {{ convert(scope.row.finding) }}
+                </span>
+              </template>
+      </el-table-column>
+
       <el-table-column
-        label="clinical notes"
+        label="clinicalinfo"
         align="center"
       >
         <template slot-scope="scope">

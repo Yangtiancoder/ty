@@ -34,11 +34,17 @@
 
     </div>
 
-     <div v-if="dataset == 3">
+     <div v-else-if="dataset == 3">
 
        <DataTablecp :data="tableData" :query="query" />
 
-        </div>
+     </div>
+
+     <div v-else-if="dataset == 1">
+
+            <DataTablecpp :data="tableData" :query="query" />
+
+     </div>
 
     <div class="post-outer-container" v-else>
       <Post
@@ -53,10 +59,11 @@
 </template>
 
 <script>
-import { dataset1, dataset3, dataset4, dataset5 } from "@/assets/data.js";
+import { dataset1, dataset2, dataset3, dataset4 } from "@/assets/data.js";
 import Post from "@/components/Post";
 import DataTable from "@/components/DataTable";
 import DataTablecp from "@/components/DataTablecp";
+import DataTablecpp from "@/components/DataTablecpp";
 
 export default {
   data() {
@@ -68,7 +75,7 @@ export default {
   },
   computed: {
     tableData() {
-      const resultData = [dataset1, dataset5, dataset3, dataset4][
+      const resultData = [dataset1, dataset2, dataset3, dataset4][
         this.dataset - 1
       ];
       return resultData.filter((post) => {
@@ -99,6 +106,7 @@ export default {
     Post,
     DataTable,
     DataTablecp,
+    DataTablecpp,
   },
 
 };

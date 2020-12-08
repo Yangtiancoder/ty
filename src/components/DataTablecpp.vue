@@ -1,56 +1,87 @@
 <template>
   <div class="post-table-container">
     <el-table :data="tableData" style="width: 100%" class="table">
- <el-table-column
-        prop="sequenceid"
-        label="sequenceid"
-        width="120"
+
+      <el-table-column
+        prop="patientid"
+        label="patientid"
+        width="90"
         align="center"
       ></el-table-column>
 
+
       <el-table-column
-        prop="sequencetype"
-        label="sequencetype"
-        width="140"
+        prop="offset"
+        label="offset"
+        width="90"
+        align="center"
+      ></el-table-column>
+
+            <el-table-column
+              prop="sex"
+              label="sex"
+              width="90"
+              align="center"
+            ></el-table-column>
+
+                  <el-table-column
+                    prop="age"
+                    label="age"
+                    width="120"
+                    align="center"
+                  ></el-table-column>
+
+      <el-table-column
+        prop="symptom"
+        label="symptom"
+        width="90"
         align="center"
       >
-              <template slot-scope="scope">
-                <span v-html="convert(scope.row.sequencetype)">
-                  {{ convert(scope.row.sequencetype) }}
+       <template slot-scope="scope">
+                <span v-html="convert(scope.row.symptom)">
+                  {{ convert(scope.row.symptom) }}
                 </span>
               </template>
       </el-table-column>
 
     <el-table-column
-        prop="completeness"
-        label="completeness"
-        width="180"
+        prop="finding"
+        label="finding"
+        width="120"
         align="center"
       >
-              <template slot-scope="scope">
-                <span v-html="convert(scope.row.completeness)">
-                  {{ convert(scope.row.completeness) }}
-                </span>
-              </template>
+
+             <template slot-scope="scope">
+                      <span v-html="convert(scope.row.finding)">
+                        {{ convert(scope.row.finding) }}
+                      </span>
+                    </template>
+
       </el-table-column>
-   <el-table-column
-        prop="clinicalinfo"
-        label="clinicalinfo"
-        width="280"
+
+
+<el-table-column
+        prop="datasource"
+        label="datasource"
+        width="100"
         align="center"
       >
-              <template slot-scope="scope">
-                <span v-html="convert(scope.row.clinicalinfo)">
-                  {{ convert(scope.row.clinicalinfo) }}
+       <template slot-scope="scope">
+                <span v-html="convert(scope.row.datasource)">
+                  {{ convert(scope.row.datasource) }}
                 </span>
               </template>
       </el-table-column>
 
       <el-table-column
-        label="sequence"
+        label="clinicalnotes"
         align="center"
       >
-
+        <template slot-scope="scope">
+          <span v-html="convert(scope.row.clinicalnotes)">
+            {{ convert(scope.row.clinicalnotes) }}
+          </span>
+        </template>
       </el-table-column>
     </el-table>
   </div>
