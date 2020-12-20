@@ -33,6 +33,20 @@
                 </span>
               </template>
       </el-table-column>
+
+        <el-table-column
+              prop="datasource"
+              label="datasource"
+              width="120"
+              align="center"
+            >
+                    <template slot-scope="scope">
+                      <span v-html="convert(scope.row.datasource)">
+                        {{ convert(scope.row.datasource) }}
+                      </span>
+                    </template>
+            </el-table-column>
+
    <el-table-column
         prop="clinicalinfo"
         label="clinicalinfo"
@@ -50,7 +64,9 @@
         label="sequence"
         align="center"
       >
-
+        <template >
+            <el-button type="text">Download</el-button>
+        </template>
       </el-table-column>
     </el-table>
   </div>
@@ -66,13 +82,14 @@ export default {
   },
   methods: {
     convert(content) {
+      if(!content) return ""
       content = JSON.stringify(content);
       content = content
         .split(this.query)
         .join(
           `<span style="color:orange;fontWeight: 900;">${this.query}</span>`
         );
-      return `<p>${content}</p>`;
+      return `<p>${content.slice(1, content.length-1)}</p>`;
     },
   },
 };

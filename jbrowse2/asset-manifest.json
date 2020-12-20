@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.js": "./static/js/main.22f5cb87.chunk.js",
+    "main.js.map": "./static/js/main.22f5cb87.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.53adf0df.js",
+    "runtime-main.js.map": "./static/js/runtime-main.53adf0df.js.map",
+    "static/css/2.d8dc3702.chunk.css": "./static/css/2.d8dc3702.chunk.css",
+    "static/js/2.50cd19d0.chunk.js": "./static/js/2.50cd19d0.chunk.js",
+    "static/js/2.50cd19d0.chunk.js.map": "./static/js/2.50cd19d0.chunk.js.map",
+    "static/js/3.f44f98de.chunk.js": "./static/js/3.f44f98de.chunk.js",
+    "static/js/3.f44f98de.chunk.js.map": "./static/js/3.f44f98de.chunk.js.map",
+    "static/js/4.5376da79.chunk.js": "./static/js/4.5376da79.chunk.js",
+    "static/js/4.5376da79.chunk.js.map": "./static/js/4.5376da79.chunk.js.map",
+    "91abc507c1c855a20cb5.worker.js": "./91abc507c1c855a20cb5.worker.js",
+    "91abc507c1c855a20cb5.worker.js.LICENSE.txt": "./91abc507c1c855a20cb5.worker.js.LICENSE.txt",
+    "91abc507c1c855a20cb5.worker.js.map": "./91abc507c1c855a20cb5.worker.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.92336d82c3afc3c9ff5ceea643e4453e.js": "./precache-manifest.92336d82c3afc3c9ff5ceea643e4453e.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/2.d8dc3702.chunk.css.map": "./static/css/2.d8dc3702.chunk.css.map",
+    "static/js/2.50cd19d0.chunk.js.LICENSE.txt": "./static/js/2.50cd19d0.chunk.js.LICENSE.txt",
+    "static/js/3.f44f98de.chunk.js.LICENSE.txt": "./static/js/3.f44f98de.chunk.js.LICENSE.txt",
+    "static/media/linearGenomeViewIcon.png": "./static/media/linearGenomeViewIcon.74c99836.png",
+    "static/media/index.css": "./static/media/roboto-vietnamese-400-normal.a8be5b46.woff2",
+    "static/media/svInspectorIcon.png": "./static/media/svInspectorIcon.06d28298.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.53adf0df.js",
+    "static/js/3.f44f98de.chunk.js",
+    "static/js/main.22f5cb87.chunk.js"
+  ]
+}

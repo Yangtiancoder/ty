@@ -86,8 +86,10 @@ export default {
         .split(this.query)
         .join(
           `<span style="color:orange;fontWeight: 900;">${this.query}</span>`
-        );
-      return `<p>${content}</p>`;
+        )
+        .split('新型冠状病毒肺炎')
+        .join(`<span style="color:orange;fontWeight: 900;">新型冠状病毒肺炎</span>`)
+      return `<p>${content.slice(1, content.length-1)}</p>`;
     },
   },
 };

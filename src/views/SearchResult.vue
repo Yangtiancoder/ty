@@ -8,13 +8,11 @@
       {{query}}
       </span>
     </p>
-
     <div class="result-container">
       <el-table :data="tableData" style="width: 100%" class="table" >
         <el-table-column prop="id" label="num" width="90" align="center"></el-table-column>
         <el-table-column prop="数据库" label="DataBase" width="500" align="center"></el-table-column>
-
-        <el-table-column :label="`totally find ${total} results`" align="left">
+       <el-table-column :label="`totally find ${total} results`" align="left">
           <template slot-scope="scope">
             <p>
                 <span class="em">{{scope.row.resultNum}}</span>
@@ -29,43 +27,46 @@
     </div>
   </div>
 </template>
-
 <script>
-import { dataset1, dataset2, dataset3, dataset4} from '@/assets/data.js'
+// import { dataset1, dataset2, dataset3, dataset4} from '@/assets/data.js'
+import axios from 'axios'
 
 export default {
 
   data() {
-    const query = this.$route.query.query || 'error'
-    const [num1, num2, num3, num4] =([dataset1, dataset2, dataset3, dataset4]).map(dataset => {
-      return dataset.reduce((prePost, post) => {
-      return prePost + post.reduce((pre, para)=>{
-        if(para.type === 'text'){
-          const contentString = JSON.stringify(para.content)
-          return contentString.indexOf(query) >= 0 ? pre + 1 : pre
-        }
-        return pre
-      }, 0)
-    }, 0)
-    })
-
 
     return {
-      dataset1: num1,
-      dataset2: num2,
-      dataset3: num3,
-      dataset4: num4,
-      total: num1 + num2 + num3 + num4,
-      query
+      dataset1: 0,
+      dataset2: 0,
+      dataset3: 0,
+      dataset4: 0,
+      total: 0,
+      dataset: [],
+      query: this.$route.query.query || "error",
     };
+  },
+  mounted(){
+    const baseUrl = 'http://192.168.1.102:8888/all'
+
+    axios.get(baseUrl)
+      .then(({ data }) =>{
+        data.forEach((dataset, index) => {
+            this[`dataset${index+1}`] = dataset.reduce((pre, record) => {
+                if(record.indexOf(this.query) > 0) return pre + 1
+                else return pre
+            }, 0)
+        })
+        this.total = this.dataset1 + this.dataset2 + this.dataset3 + this.dataset4
+      } )
+
   },
   computed: {
     tableData() {
       return [
-        { id: 1, 数据库: "Clinical Medical", resultNum: this.dataset1 },
-        { id: 2, 数据库: "Medical Image", resultNum: this.dataset2 },
-        { id: 3, 数据库: "Omics", resultNum: this.dataset3 },
-        { id: 4, 数据库: "BioMedical Knowledge", resultNum: this.dataset4 },
+               { id: 1, 数据库: "Clinical Medical", resultNum: this.dataset1 },
+               { id: 2, 数据库: "Medical Image", resultNum: this.dataset2 },
+               { id: 3, 数据库: "Omics", resultNum: this.dataset3 },
+               { id: 4, 数据库: "BioMedical Knowledge", resultNum: this.dataset4 },
       ];
     },
     resultNums(){

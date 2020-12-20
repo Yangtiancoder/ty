@@ -5,28 +5,126 @@
         >Back</el-button
       >
     </div>
+    <div v-if="dataset == 2">
+    <span style="color: #fff; fontWeight: bold; fontSize:18px">Modality:</span>
+          <el-select
+          style="margin: 10px 40px;"
+          v-model="value"
+          placeholder="Choose A column"
+          size="medium"
+          >
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+         <span style="color: #fff; fontWeight: bold; fontSize:18px">Datasource:</span>
+        <el-select
+        style="margin: 10px 40px;"
+        v-model="value2"
+        placeholder="Choose A column"
+        size="medium"
+       >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+        <el-button type="primary" style="width:150px">Search <i class="el-icon-search"></i></el-button>
+
+</div>
+
+
+    <div v-if="dataset == 1">
+    <span style="color: #fff; fontWeight: bold; fontSize:18px">Age:</span>
+          <el-select
+          style="margin: 10px 40px;"
+          v-model="value"
+          placeholder="Choose A column"
+          size="medium"
+          >
+            <el-option
+              v-for="item in options1"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
+          </el-select>
+         <span style="color: #fff; fontWeight: bold; fontSize:18px">Sex:</span>
+        <el-select
+        style="margin: 10px 40px;"
+        v-model="value2"
+        placeholder="Choose A column"
+        size="medium"
+      >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+
+         <span style="color: #fff; fontWeight: bold; fontSize:18px">DataSource:</span>
+                <el-select
+                style="margin: 10px 40px;"
+                v-model="value3"
+                placeholder="Choose A column"
+                size="medium"
+              >
+                  <el-option
+                    v-for="item in options"
+                    :key="item.value"
+                    :label="item.label"
+                    :value="item.value"
+                  >
+                  </el-option>
+                </el-select>
+        <el-button type="primary" style="width:150px">Search <i class="el-icon-search"></i></el-button>
+
+</div>
+
+    <div v-if="dataset == 3">
+         <span style="color: #fff; fontWeight: bold; fontSize:18px">DataSource:</span>
+        <el-select
+        style="margin: 10px 40px;"
+        v-model="value2"
+        placeholder="Choose A column"
+        size="medium"
+       >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          >
+          </el-option>
+        </el-select>
+        <el-button type="primary" style="width:150px">Search <i class="el-icon-search"></i></el-button>
+
+</div>
+
     <p class="title">
       Find:
       <span style="color: orange">
         {{ query }}
       </span>
-
-      <el-select
-      style="margin: 5px 20px;"
-      v-model="value"
-      placeholder="Choose A column"
-      size="mini"
-      v-if="dataset == 2">
-        <el-option
-          v-for="item in options"
-          :key="item.value"
-          :label="item.label"
-          :value="item.value"
-        >
-        </el-option>
-      </el-select>
     </p>
-    <p class="en-title">totally {{ tableData.length }} results</p>
+<!--
+<p class="en-title" v-if="dataset == 1" >totally 372 results</p>
+<p class="en-title" v-if="dataset == 2" >totally 1364 results</p>
+<p class="en-title" v-if="dataset == 3" >totally 205 results</p>
+<p class="en-title" v-if="dataset == 4" >totally 469 results</p>
+-->
+<p class="en-title" >totally {{tableData.length}} results</p>
 
     <div v-if="dataset == 2">
 
@@ -55,15 +153,17 @@
       >
       </Post>
     </div>
+
   </div>
 </template>
 
 <script>
-import { dataset1, dataset2, dataset3, dataset4 } from "@/assets/data.js";
+// import { dataset1, dataset2, dataset3, dataset4 } from "@/assets/data.js";
 import Post from "@/components/Post";
 import DataTable from "@/components/DataTable";
 import DataTablecp from "@/components/DataTablecp";
 import DataTablecpp from "@/components/DataTablecpp";
+import axios from 'axios'
 
 export default {
   data() {
@@ -71,13 +171,31 @@ export default {
       query: this.$route.query.query || "error",
       dataset: this.$route.query.dataset || "null",
       value: null,
+      value2: null,
+      value3: null,
+      remoteDataset: [],
     };
+  },
+  mounted(){ console.log('mmm')
+    let url = 'http://127.0.0.1:8888/'
+    if(this.dataset === '1') url += 'clinical'
+    else if(this.dataset === '2') url += 'image'
+    else if(this.dataset === '3') url += 'medicine'
+    else url += 'doc'
+
+    axios.get(url)
+        .then(response => {
+            const { data } = response
+            this.remoteDataset = data
+        })
   },
   computed: {
     tableData() {
-      const resultData = [dataset1, dataset2, dataset3, dataset4][
-        this.dataset - 1
-      ];
+      const resultData = this.remoteDataset.map(options => {
+        return [{ type: 'text', content: JSON.stringify(options) }]
+      });
+
+
       return resultData.filter((post) => {
         for (let para of post) {
           const { type, content } = para;
@@ -93,14 +211,27 @@ export default {
     },
     options(){
       return [
-        { value: null, label: 'All Column'},
-        { value: 'patientid', label: 'patient id'},
-        { value: 'sex', label: 'sex'},
-        { value: 'age', label: 'age'},
-        { value: 'finding', label: 'finding'},
+        { value: null, label: 'All'},
+        { value: 'patientid', label: 'M'},
+        { value: 'sex', label: 'covid-chestxray-dataset'},
+        { value: 'age', label: 'xray'},
+        { value: 'finding', label: 'NGDC-ncov'},
         { value: 'clinical_notes', label: 'clinical notes'},
       ]
-    }
+    },
+    options1(){
+          return [
+            { value: null, label: 'All'},
+            { value: 'patientid', label: '0~10'},
+            { value: 'sex', label: '10~20'},
+            { value: 'age', label: '20~30'},
+            { value: 'finding', label: '30~40'},
+            { value: 'clinical_notes', label: '40~50'},
+            { value: 'clinical_notes', label: '50~60'},
+            { value: 'clinical_notes', label: '60~70'},
+            { value: 'clinical_notes', label: '>70'},
+          ]
+        }
   },
   components: {
     Post,

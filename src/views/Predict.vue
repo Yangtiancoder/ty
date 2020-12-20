@@ -3,25 +3,25 @@
     <p class="title">基于深度学习的新冠肺炎医学影像预测</p>
     <p class="en-title">Prediction Covid-19 in CT based on DeepLearning</p>
     <el-upload
-      class="upload"
-      action="https://jsonplaceholder.typicode.com/posts/"
+      class="upload-demo"
+      action="http://127.0.0.1:8888/uploads"
       :on-preview="handlePreview"
       :on-remove="handleRemove"
       :on-change="handleUpdate"
       list-type="picture"
       :auto-upload="false"
+      ref="upload"
       :show-file-list="showFileList"
-      multiple
     >
-      <el-button size="small" type="primary" >批量上传</el-button>
-      <el-button size="small" type="success" @click.stop="doPredict" :disabled="localFileList.length===0">预测</el-button>
+    <el-button size="small" type="primary" >选择文件</el-button>
+    <el-button size="small" type="primary" @click.stop="sc" >文件上传</el-button>
+    <el-button size="small" type="success" @click.stop="doPredict">预测</el-button>
     </el-upload>
 
     <div class="report-list" v-if="!showFileList">
       <p class="title">报告结果</p>
       <el-table :data="tableData" stripe style="width: 90%" border v-loading="loading">
         <el-table-column prop="index" label="序列" align="center"></el-table-column>
-        <el-table-column prop="name" label="名称" align="center"></el-table-column>
         <el-table-column label="预览" width="400" align="center">
           <template slot-scope="scope">
             <img :src="scope.row.url" style="height: 90px">
@@ -40,13 +40,18 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   data() {
     return {
+
       fileList: [],
       localFileList: [],
       showFileList: true,
       loading: true,
+      result: '',
     };
   },
   computed: {
@@ -55,13 +60,12 @@ export default {
         index: index + 1,
         name: file.name.split(".")[0],
         url: file.url,
-        isCovid19:file.name.toLowerCase().indexOf("covid") >=0
+        isCovid19:this.result
       }));
     },
   },
   methods: {
-    handlePreview(file, fileList) {
-      console.log(fileList);
+    handlePreview(file) {
       window.open(file?.url, "_blank");
     },
     handleRemove(file) {
@@ -73,12 +77,24 @@ export default {
       this.showFileList = true
       this.localFileList.push(file);
     },
+    sc(){
+              //手动提交
+              //和表单一起提交，先提交图片，后提交表单
+              this.$refs.upload.submit()
+            },
+
     doPredict(){
+      this.localFileList.pop();
+      let url = 'http://127.0.0.1:8888/product/predict'
+      axios.get(url)
+              .then(res => {
+                                this.result = res.data
+              })
       this.showFileList = false
       this.loading = true
       setTimeout(()=>{
         this.loading=false
-      },1000)
+      },10000)
 
     }
   },

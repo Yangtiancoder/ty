@@ -203,7 +203,6 @@ export const data = [
 ]
 
 export const dataset1 =
-    // data.map(item => ([{type: 'text', content: item}]))
     [
 
         [
@@ -215,7 +214,6 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "F",
                     "age": "63",
-                    "symptom": "",
                     "finding": "COVID-19",
                     "datasource":"",
                     "clinicalnotes": ''
@@ -231,9 +229,8 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "M",
                     "age": "30",
-                    "symptom": "Fever",
                     "finding": "COVID-19",
-                    "datasource":"",
+                    "datasource":"NGDC-ncov",
                     "clinicalnotes": 'Ultra-deep sequencing of the isolated viral genomic RNA(Illumina Novaseq 6000 platform)'
                 })
             }
@@ -247,9 +244,8 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "M",
                     "age": "53",
-                    "symptom": "",
                     "finding": "COVID-19",
-                    "datasource":"",
+                    "datasource":"NGDC-ncov",
                     "clinicalnotes": 'Ultra-deep sequencing of the isolated viral genomic RNA(Illumina Novaseq 6000 platform)'
                 })
             }
@@ -263,9 +259,8 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "F",
                     "age": "3",
-                    "symptom": "",
                     "finding": "COVID-19",
-                    "datasource":"",
+                    "datasource":"NGDC-ncov",
                     "clinicalnotes": 'Weak positive on 2020/1/27, posotive on 2020/1/29 no clinical symptoms before, during, or after hospitalization,chest CT showed on no significant abnormalities.'
                 })
             }
@@ -279,9 +274,8 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "M",
                     "age": "35",
-                    "symptom": "",
                     "finding": "COVID-19",
-                    "datasource":"",
+                    "datasource":"NGDC-ncov",
                     "clinicalnotes": 'Paucisymptomatic, with only an occasional cough, chest CT showed on no significant abnormalities。Recovered and were discharged to home isolation for 14 days'
                 })
             }
@@ -296,7 +290,6 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "",
                     "age": "",
-                    "symptom": "",
                     "finding": "ARDS",
                     "datasource":"covid-chestxray-dataset",
                     "clinicalnotes": 'Severe ARDS. Person is intubated with an OG in place.'
@@ -313,7 +306,6 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "",
                     "age": "",
-                    "symptom": "",
                     "finding": "COVID-19",
                     "datasource":"covid-chestxray-dataset",
                     "clinicalnotes":'Case 2: chest x-ray obtained on Jan 6 (2A). The brightness of both lungs was decreased and multiple patchy shadows were observed; edges were blurred, and large ground-glass opacity and condensation shadows were mainly on the lower right lobe. Tracheal intubation could be seen in the trachea. Heart shadow roughly presents in the normal range. On the left side, the diaphragmatic surface is not clearly displayed. The right side of the diaphragmatic surface was light and smooth and rib phrenic angle was less sharp. Chest x-ray on Jan 10 showed worse status (2B)'
@@ -330,7 +322,6 @@ export const dataset1 =
                     "offset": "4",
                     "sex": "",
                     "age": "",
-                    "symptom": "",
                     "finding": "COVID-19",
                     "datasource":"covid-chestxray-dataset",
                     "clinicalnotes": 'Case 2: chest x-ray obtained on Jan 6 (2A). The brightness of both lungs was decreased and multiple patchy shadows were observed; edges were blurred, and large ground-glass opacity and condensation shadows were mainly on the lower right lobe. Tracheal intubation could be seen in the trachea. Heart shadow roughly presents in the normal range. On the left side, the diaphragmatic surface is not clearly displayed. The right side of the diaphragmatic surface was light and smooth and rib phrenic angle was less sharp. Chest x-ray on Jan 10 showed worse status (2B)'
@@ -347,7 +338,6 @@ export const dataset1 =
                     "offset": "7",
                     "sex": "F",
                     "age": "29",
-                    "symptom": "",
                     "finding": "SARS",
                     "datasource":"covid-chestxray-dataset",
                     "clinicalnotes": 'SARS in a 29-year-old woman who presented 7 days after exposure. (a) Posteroanterior radiograph depicts a subtle focus of consolidation in the right lower zone, partly obscured by breast tissue.'
@@ -364,7 +354,6 @@ export const dataset1 =
                     "offset": "0",
                     "sex": "M",
                     "age": "56",
-                    "symptom": "",
                     "finding": "COVID-19",
                     "datasource":"covid-chestxray-dataset",
                     "clinicalnotes": 'A 56-year-old man presented to our Emergency Department in Toronto, ON, Canada, with fever and non-productive cough, 1 day after returning from a 3-month visit to Wuhan, China. Given this travel history, the transferring ambulance and receiving hospital personnel used appropriate personal protective equipment. He had a medical history of well controlled hypertension. On examination, his maximum temperature was 38·6°C, oxygen saturation was 97% on room air, and respiratory rate was 22 breaths per min—without any signs of respiratory distress. Laboratory investigations showed mild thrombocytopenia (113 × 109 per L, normal 150–400), haemoglobin concentration 146 g/L (normal 130–180), white blood cell count 7·4 × 109 per L (normal 4–11), creatinine concentration 81 μmol/L, alanine aminotransferase 29 IU/L (normal <40), and lactate concentration 1·1 mmol/L (normal 0·5–2·0). A chest x-ray showed patchy bilateral, peribronchovascular, ill-defined opacities in all lung zones.'
@@ -381,7 +370,6 @@ export const dataset1 =
                     "offset": "4",
                     "sex": "M",
                     "age": "35",
-                    "symptom": "",
                     "finding": "COVID-19",
                     "datasource":"covid-chestxray-dataset",
                     "clinicalnotes": 'On January 1, 2020, a 42-year-old man was admitted to the emergency department of Union Hospital (Tongji Medical College, Wuhan, Hubei Province) due to a high-grade fever (39.6°C [103.28°C]), cough, and fatigue for 1 week. Bilateral coarse breath sounds with wet rales distributed at the bases of both lungs were heard on auscultation. A, Chest radiograph obtained on day 7 after the onset of symptoms shows opacities in the left lower and right upper lobes.'
@@ -403,7 +391,7 @@ export const dataset2 =     [
                 "modality": "xray",
                 "datasource": "covid-chestxray-dataset",
                 "finding": "ARDS",
-                "clinical_notes": "patientid: 5,offset: 0,sex:  ,age:  ,symptom: ,finding: ARDS,datasource:covid-chestxray-dataset,clinicalnotes: 'Severe ARDS. Person is intubated with an OG in place.'"
+                "clinical_notes": "patientid: 5,offset: 0,sex:  ,age:  ,finding: ARDS,datasource:covid-chestxray-dataset,clinicalnotes: 'Severe ARDS. Person is intubated with an OG in place.'"
             })
         }
     ]
@@ -418,7 +406,7 @@ export const dataset2 =     [
                 "modality": "xray",
                 "datasource": "covid-chestxray-dataset",
                 "finding": "COVID-19",
-                "clinical_notes": "patientid: 6,offset: 0,sex: ,age: ,symptom: ,finding: COVID-19,datasource:covid-chestxray-dataset,clinicalnotes: 'Case 2: chest x-ray obtained on Jan 6 (2A). The brightness of both lungs was decreased and multiple patchy shadows were observed; edges were blurred, and large ground-glass opacity and condensation shadows were mainly on the lower right lobe. Tracheal intubation could be seen in the trachea. Heart shadow roughly presents in the normal range. On the left side, the diaphragmatic surface is not clearly displayed. The right side of the diaphragmatic surface was light and smooth and rib phrenic angle was less sharp. Chest x-ray on Jan 10 showed worse status (2B)'"
+                "clinical_notes": "patientid: 6,offset: 0,sex: ,age: ,finding: COVID-19,datasource:covid-chestxray-dataset,clinicalnotes: 'Case 2: chest x-ray obtained on Jan 6 (2A). The brightness of both lungs was decreased and multiple patchy shadows were observed; edges were blurred, and large ground-glass opacity and condensation shadows were mainly on the lower right lobe. Tracheal intubation could be seen in the trachea. Heart shadow roughly presents in the normal range. On the left side, the diaphragmatic surface is not clearly displayed. The right side of the diaphragmatic surface was light and smooth and rib phrenic angle was less sharp. Chest x-ray on Jan 10 showed worse status (2B)'"
             })
         }
     ]
@@ -433,7 +421,7 @@ export const dataset2 =     [
                 "modality": "xray",
                 "datasource": "covid-chestxray-dataset",
                 "finding": "COVID-19",
-                "clinical_notes": "patientid: 6,offset: 4,sex: ,age: ,symptom: ,finding: COVID-19,datasource:covid-chestxray-dataset,clinicalnotes: 'Case 2: chest x-ray obtained on Jan 6 (2A). The brightness of both lungs was decreased and multiple patchy shadows were observed; edges were blurred, and large ground-glass opacity and condensation shadows were mainly on the lower right lobe. Tracheal intubation could be seen in the trachea. Heart shadow roughly presents in the normal range. On the left side, the diaphragmatic surface is not clearly displayed. The right side of the diaphragmatic surface was light and smooth and rib phrenic angle was less sharp. Chest x-ray on Jan 10 showed worse status (2B)'"
+                "clinical_notes": "patientid: 6,offset: 4,sex: ,age: ,finding: COVID-19,datasource:covid-chestxray-dataset,clinicalnotes: 'Case 2: chest x-ray obtained on Jan 6 (2A). The brightness of both lungs was decreased and multiple patchy shadows were observed; edges were blurred, and large ground-glass opacity and condensation shadows were mainly on the lower right lobe. Tracheal intubation could be seen in the trachea. Heart shadow roughly presents in the normal range. On the left side, the diaphragmatic surface is not clearly displayed. The right side of the diaphragmatic surface was light and smooth and rib phrenic angle was less sharp. Chest x-ray on Jan 10 showed worse status (2B)'"
             })
         }
     ]
@@ -448,7 +436,7 @@ export const dataset2 =     [
                 "modality": "xray",
                 "datasource": "covid-chestxray-dataset",
                 "finding": "COVID-19",
-                "clinical_notes": "patientid:11,offset:0,sex: M,age: 56,symptom: ,finding:COVID-19,datasource:covid-chestxray-dataset,clinicalnotes: 'A 56-year-old man presented to our Emergency Department in Toronto, ON, Canada, with fever and non-productive cough, 1 day after returning from a 3-month visit to Wuhan, China. Given this travel history, the transferring ambulance and receiving hospital personnel used appropriate personal protective equipment. He had a medical history of well controlled hypertension. On examination, his maximum temperature was 38·6°C, oxygen saturation was 97% on room air, and respiratory rate was 22 breaths per min—without any signs of respiratory distress. Laboratory investigations showed mild thrombocytopenia (113 × 109 per L, normal 150–400), haemoglobin concentration 146 g/L (normal 130–180), white blood cell count 7·4 × 109 per L (normal 4–11), creatinine concentration 81 μmol/L, alanine aminotransferase 29 IU/L (normal <40), and lactate concentration 1·1 mmol/L (normal 0·5–2·0). A chest x-ray showed patchy bilateral, peribronchovascular, ill-defined opacities in all lung zones.'"
+                "clinical_notes": "patientid:11,offset:0,sex: M,age: 56,finding:COVID-19,datasource:covid-chestxray-dataset,clinicalnotes: 'A 56-year-old man presented to our Emergency Department in Toronto, ON, Canada, with fever and non-productive cough, 1 day after returning from a 3-month visit to Wuhan, China. Given this travel history, the transferring ambulance and receiving hospital personnel used appropriate personal protective equipment. He had a medical history of well controlled hypertension. On examination, his maximum temperature was 38·6°C, oxygen saturation was 97% on room air, and respiratory rate was 22 breaths per min—without any signs of respiratory distress. Laboratory investigations showed mild thrombocytopenia (113 × 109 per L, normal 150–400), haemoglobin concentration 146 g/L (normal 130–180), white blood cell count 7·4 × 109 per L (normal 4–11), creatinine concentration 81 μmol/L, alanine aminotransferase 29 IU/L (normal <40), and lactate concentration 1·1 mmol/L (normal 0·5–2·0). A chest x-ray showed patchy bilateral, peribronchovascular, ill-defined opacities in all lung zones.'"
             })
         }
     ]
@@ -463,7 +451,7 @@ export const dataset2 =     [
                 "modality": "xray",
                 "datasource": "covid-chestxray-dataset",
                 "finding": "COVID-19",
-                "clinical_notes": "patientid: 13,offset: 4,sex: M,age: 35,symptom: ,finding: COVID-19,datasource:covid-chestxray-dataset,clinicalnotes:'On January 1, 2020, a 42-year-old man was admitted to the emergency department of Union Hospital (Tongji Medical College, Wuhan, Hubei Province) due to a high-grade fever (39.6°C [103.28°C]), cough, and fatigue for 1 week. Bilateral coarse breath sounds with wet rales distributed at the bases of both lungs were heard on auscultation. A, Chest radiograph obtained on day 7 after the onset of symptoms shows opacities in the left lower and right upper lobes.'"
+                "clinical_notes": "patientid: 13,offset: 4,sex: M,age: 35,finding: COVID-19,datasource:covid-chestxray-dataset,clinicalnotes:'On January 1, 2020, a 42-year-old man was admitted to the emergency department of Union Hospital (Tongji Medical College, Wuhan, Hubei Province) due to a high-grade fever (39.6°C [103.28°C]), cough, and fatigue for 1 week. Bilateral coarse breath sounds with wet rales distributed at the bases of both lungs were heard on auscultation. A, Chest radiograph obtained on day 7 after the onset of symptoms shows opacities in the left lower and right upper lobes.'"
             })
         }
     ]
@@ -921,7 +909,7 @@ export const dataset3 =
                     "sequencetype": "Homo Sapiens",
                     "datasource":"GISAID",
                     "completeness": "complete genome",
-                    "clinicalinfo": 'patientid: 0,offset: 0,sex: F,age: 63,symptom:,finding:COVID-19,clinicalnotes: ',
+                    "clinicalinfo": 'patientid: 0,offset: 0,sex: F,age: 63,finding:COVID-19,clinicalnotes: ',
                     "sequence":''
                 })
             }
@@ -935,7 +923,7 @@ export const dataset3 =
                     "sequencetype": "Homo Sapiens",
                     "datasource":"GISAID",
                     "completeness": "complete genome",
-                    "clinicalinfo": 'patientid: 1,offset: 0,sex: M,age: 30,symptom: Fever,finding: COVID-19,datasource:,clinicalnotes:Ultra-deep sequencing of the isolated viral genomic RNA(Illumina Novaseq 6000 platform)',
+                    "clinicalinfo": 'patientid: 1,offset: 0,sex: M,age: 30,finding: COVID-19,clinicalnotes:Ultra-deep sequencing of the isolated viral genomic RNA(Illumina Novaseq 6000 platform)',
                     "sequence":''
                 })
             }
@@ -950,7 +938,7 @@ export const dataset3 =
                     "sequencetype": "Homo Sapiens",
                     "datasource":"GISAID",
                     "completeness": "complete genome",
-                    "clinicalinfo": 'patientid: 3,offset: 0,sex: F,age: 3,symptom: ,finding: COVID-19,datasource:,clinicalnotes:Weak positive on 2020/1/27, posotive on 2020/1/29 no clinical symptoms before, during, or after hospitalization,chest CT showed on no significant abnormalities.',
+                    "clinicalinfo": 'patientid: 3,offset: 0,sex: F,age: 3,finding: COVID-19,clinicalnotes:Weak positive on 2020/1/27, posotive on 2020/1/29 no clinical symptoms before, during, or after hospitalization,chest CT showed on no significant abnormalities.',
                     "sequence":''
                 })
             }
@@ -965,13 +953,11 @@ export const dataset3 =
                     "sequencetype": "Homo Sapiens",
                     "datasource":"GISAID",
                     "completeness": "complete genome",
-                    "clinicalinfo": 'patientid:4,offset: 0,sex: M,age: 35,symptom: ,finding: COVID-19,datasource:,clinicalnotes:\'Paucisymptomatic, with only an occasional cough, chest CT showed on no significant abnormalities。Recovered and were discharged to home isolation for 14 days',
+                    "clinicalinfo": 'patientid:4,offset: 0,sex: M,age: 35,finding: COVID-19,clinicalnotes:\'Paucisymptomatic, with only an occasional cough, chest CT showed on no significant abnormalities。Recovered and were discharged to home isolation for 14 days',
                     "sequence":''
                 })
             }
         ]
-
-
     ]
 
 export const dataset4 = [

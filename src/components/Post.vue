@@ -22,8 +22,18 @@ export default {
   methods:{
       convert(content){
           content = JSON.stringify(content)
-          content = content.split(this.query).join(`<span style="color:orange;fontWeight: 900;">${this.query}</span>`)
-        return `<p>${content}</p>`
+          content = content.split(this.query)
+          .join(`<span style="color:orange;fontWeight: 900;">${this.query}</span>`)
+          .split('新型冠状病毒肺炎')
+          .join(`<span style="color:orange;fontWeight: 900;">新型冠状病毒肺炎</span>`)
+          .split('COVID-19')
+                    .join(`<span style="color:orange;fontWeight: 900;">COVID-19</span>`)
+                    .split('新冠肺炎')
+                              .join(`<span style="color:orange;fontWeight: 900;">新冠肺炎</span>`)
+.split('2019冠状病毒病')
+                              .join(`<span style="color:orange;fontWeight: 900;">2019冠状病毒病</span>`)
+
+        return `<p>${content.slice(1,content.length-1)}</p>`
       }
   }
 };

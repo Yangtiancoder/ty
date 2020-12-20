@@ -31,18 +31,6 @@
                     align="center"
                   ></el-table-column>
 
-      <el-table-column
-        prop="symptom"
-        label="symptom"
-        width="90"
-        align="center"
-      >
-       <template slot-scope="scope">
-                <span v-html="convert(scope.row.symptom)">
-                  {{ convert(scope.row.symptom) }}
-                </span>
-              </template>
-      </el-table-column>
 
     <el-table-column
         prop="finding"
@@ -97,13 +85,14 @@ export default {
   },
   methods: {
     convert(content) {
+      if(!content) return ""
       content = JSON.stringify(content);
       content = content
         .split(this.query)
         .join(
           `<span style="color:orange;fontWeight: 900;">${this.query}</span>`
         );
-      return `<p>${content}</p>`;
+      return `<p>${content.slice(1, content.length-1)}</p>`;
     },
   },
 };
